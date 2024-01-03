@@ -15,6 +15,8 @@ async def on_message(message):
     if message_cont.find('https:\/\/x.com'):
         vx_url = message_cont.replace('x.com', 'vxtwitter.com')
         await message.channel.send(vx_url)
+    elif message.content == "おはよう":
+        await message.channel.send("おはよう！！")
     # emoji ="👍"
     # await message.add_reaction(emoji)
 
