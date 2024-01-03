@@ -10,8 +10,8 @@ async def on_ready():
 
 @client.event
 async def on_message(message):
-    print(message)
     message_cont = message.content
+    print(message_cont)
     if message_cont.find('https:\/\/x.com'):
         vx_url = message_cont.replace('x.com', 'vxtwitter.com')
         await message.channel.send(vx_url)
