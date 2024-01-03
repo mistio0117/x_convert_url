@@ -14,7 +14,8 @@ async def on_message(message):
     # await message.add_reaction(emoji)
     # await message.channel.send("おはよう！！")
     if message.content.find('https:\/\/x.com'):
-        vx_url = message.content.replace('x.com', 'vxtwitter.com')
+        vx_url = message.content
+        vx_url = vx_url.replace('x.com', 'vxtwitter.com')
         await message.channel.send(vx_url)
 
 TOKEN = os.getenv("DISCORD_TOKEN")
