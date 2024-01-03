@@ -12,6 +12,7 @@ async def on_ready():
 async def on_message(message):
     emoji ="👍"
     await message.add_reaction(emoji)
+    await message.channel.send("おはよう！！")
 
 TOKEN = os.getenv("DISCORD_TOKEN")
 # Web サーバの立ち上げ
