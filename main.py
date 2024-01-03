@@ -10,16 +10,17 @@ async def on_ready():
 
 @client.event
 async def on_message(message):
-    message_cont = message.content
-    message.channel.send("おはよう！！")
-    print(message_cont)
-    # if message_cont.find('https:\/\/x.com'):
-    #     vx_url = message_cont.replace('x.com', 'vxtwitter.com')
-    #     message.channel.send(str(vx_url))
-    # elif message.content == "おはよう":
-    #     message.channel.send("おはよう！！")
-    # emoji ="👍"
-    # await message.add_reaction(emoji)
+    # 送信者がbotである場合は弾く
+    if message.author.bot:
+        return 
+    # メッセージの本文が 鳴いて だった場合
+    if message.content == "鳴いて":
+        # 送信するメッセージをランダムで決める
+        content = "aaaa"
+        # メッセージが送られてきたチャンネルに送る
+        await message.channel.send(content)
+    elif message.content == "おはよう":
+        await message.channel.send("おはよう！！")
 
 TOKEN = os.getenv("DISCORD_TOKEN")
 # Web サーバの立ち上げ
