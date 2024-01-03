@@ -11,12 +11,13 @@ async def on_ready():
 @client.event
 async def on_message(message):
     message_cont = message.content
+    message.channel.send("おはよう！！")
     print(message_cont)
-    if message_cont.find('https:\/\/x.com'):
-        vx_url = message_cont.replace('x.com', 'vxtwitter.com')
-        message.channel.send(str(vx_url))
-    elif message.content == "おはよう":
-        message.channel.send("おはよう！！")
+    # if message_cont.find('https:\/\/x.com'):
+    #     vx_url = message_cont.replace('x.com', 'vxtwitter.com')
+    #     message.channel.send(str(vx_url))
+    # elif message.content == "おはよう":
+    #     message.channel.send("おはよう！！")
     # emoji ="👍"
     # await message.add_reaction(emoji)
 
