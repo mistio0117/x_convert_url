@@ -10,9 +10,12 @@ async def on_ready():
 
 @client.event
 async def on_message(message):
-    emoji ="👍"
-    await message.add_reaction(emoji)
-    await message.channel.send("おはよう！！")
+    # emoji ="👍"
+    # await message.add_reaction(emoji)
+    # await message.channel.send("おはよう！！")
+    if message.content.find('https:\/\/x.com'):
+        vx_url = message.content.replace('x.com', 'vxtwitter.com')
+        await message.channel.send(vx_url)
 
 TOKEN = os.getenv("DISCORD_TOKEN")
 # Web サーバの立ち上げ
