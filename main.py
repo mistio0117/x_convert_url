@@ -11,7 +11,7 @@ async def on_ready():
 @client.event
 async def on_message(message):
     print(message)
-    if message.contgent.find('https:\/\/x.com'):
+    if message.content.find('https:\/\/x.com'):
         vx_url = message.replace('x.com', 'vxtwitter.com')
         await message.channel.send(vx_url)
     # emoji ="👍"
