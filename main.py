@@ -8,7 +8,7 @@ client = discord.Client(intents=discord.Intents.default())
 async def on_ready():
     print('ログインしました')
 
-@client.listen()
+@client.event
 async def on_message(message):
     channel_name = message.channel
     if message.author.bot:
