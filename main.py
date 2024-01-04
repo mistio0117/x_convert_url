@@ -13,12 +13,13 @@ async def on_message(message):
     channel_name = message.channel
     if message.author.bot:
         return
-    if message.content.find('x.com'):
+    if 'https://x.com' in message.content:
         vx_url = message.content.replace('x.com', 'vxtwitter.com')
         vx_url_str = str(vx_url)
         await channel_name.send(vx_url_str)
+        return
     else:
-        await channel_name.send("not in!!")
+        return
 
 TOKEN = os.getenv("DISCORD_TOKEN")
 # Web サーバの立ち上げ
