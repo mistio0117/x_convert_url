@@ -8,12 +8,12 @@ client = discord.Client(intents=discord.Intents.default())
 async def on_ready():
     print('ログインしました')
 
-@client.listen()
+@client.event
 async def on_message(message):
-    channel_name = message.channel
-    if message.author.bot:
+    channel_name = await message.channel
+    if await message.author.bot:
         return
-    if message.content.find('https:\/\/x.com'):
+    if await message.content.find('https:\/\/x.com'):
         await channel_name.send(message.content.replace('x.com', 'vxtwitter.com'))
     else:
         await channel_name.send("not in!!")
