@@ -14,7 +14,7 @@ async def on_message(message):
     channel_name = message.channel
     if message.author.bot:
         return
-    if 'https:\/\/x.com' in message.content:
+    if 'x.com' in message.content:
         vx_url = message.content.replace('x.com', 'vxtwitter.com')
         vx_url_str = str(vx_url)
         await channel_name.send(vx_url_str)
