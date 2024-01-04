@@ -10,6 +10,7 @@ async def on_ready():
 
 @client.event
 async def on_message(message):
+    print(message.content)
     channel_name = message.channel
     if message.author.bot:
         return
