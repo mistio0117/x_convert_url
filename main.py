@@ -20,7 +20,7 @@ async def on_message(message):
         await channel_name.send(vx_url_str)
         return
     else:
-        await channel_name.send("not in!!")
+        await channel_name.send(message.content)
         return
 
 TOKEN = os.getenv("DISCORD_TOKEN")
