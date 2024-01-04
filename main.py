@@ -14,7 +14,9 @@ async def on_message(message):
     if message.author.bot:
         return
     if message.content.find('x.com'):
-        await channel_name.send(message.content.replace('x.com', 'vxtwitter.com'))
+        vx_url = message.content.replace('x.com', 'vxtwitter.com')
+        vx_url_str = str(vx_url)
+        await channel_name.send(vx_url_str)
     else:
         await channel_name.send("not in!!")
 
