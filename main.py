@@ -1,29 +1,27 @@
 import discord
 import os
-from keep_alive import keep_alive
 
-client = discord.Client(intents=discord.Intents.default())
+client = discord.Client(intents=discord.Intents.all())
 
 @client.event
 async def on_ready():
-    print('ログインしました')
+  print('ログインしました')
 
 @client.event
 async def on_message(message):
+  print(message.content)
+  if message.author.bot:
+    return
+  if 'https://x.com' in message.content:
+    vx_url = message.content.replace('x.com', 'vxtwitter.com')
+    vx_url_str = str(vx_url)
+    await message.channel.send(vx_url_str)
+    return
+  else:
     print(message.content)
-    channel_name = message.channel
-    if message.author.bot:
-        return
-    if message.content.find('https://x.com') != -1:
-        vx_url = message.content.replace('x.com', 'vxtwitter.com')
-        vx_url_str = str(vx_url)
-        await channel_name.send(vx_url_str)
-        return
-    else:
-        await channel_name.send(message.content)
-        return
+    await message.channel.send("not in")
+    return
+
 
 TOKEN = os.getenv("DISCORD_TOKEN")
-# Web サーバの立ち上げ
-keep_alive()
 client.run(TOKEN)
