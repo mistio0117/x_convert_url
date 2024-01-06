@@ -1,6 +1,7 @@
 import discord
 import os
 
+# ここを変更するとメッセージが受け取れなくなる
 client = discord.Client(intents=discord.Intents.all())
 
 @client.event
@@ -10,8 +11,11 @@ async def on_ready():
 @client.event
 async def on_message(message):
   print(message.content)
+  # Botのメッセージの場合は何もしない
   if message.author.bot:
     return
+  # TODO:wtwitter.comの場合に対応できていない。
+  # main
   if 'https://x.com' in message.content:
     vx_url = message.content.replace('x.com', 'vxtwitter.com')
     vx_url_str = str(vx_url)
@@ -19,9 +23,7 @@ async def on_message(message):
     return
   else:
     print(message.content)
-    await message.channel.send("not in")
     return
-
 
 TOKEN = os.getenv("DISCORD_TOKEN")
 client.run(TOKEN)
